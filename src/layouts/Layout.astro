@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Noticias de Inteligencia Artificial explicadas de forma simple y cercana.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | IA al Día</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <h1>IA al Día</h1>
+      </a>
+      <p>Las noticias de inteligencia artificial más importantes, explicadas de forma simple.</p>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>© {new Date().getFullYear()} IA al Día · Hecho con ❤️ para gente curiosa</p>
+    </footer>
+  </body>
+</html>
